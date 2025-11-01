@@ -1,98 +1,278 @@
+# NestJS CRUD REST API
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+<p align="center">
+  A professional RESTful API built with <a href="http://nestjs.com/" target="_blank">NestJS</a> framework, featuring authentication, user management, and bookmark functionality.
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+<p align="center">
+  <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+  <a href="https://nodejs.org" target="_blank"><img src="https://img.shields.io/node/v/@nestjs/core" alt="Node.js Version" /></a>
+</p>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 📋 Table of Contents
 
-## Project setup
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Project Structure](#-project-structure)
+- [Configuration](#-configuration)
+- [Running the Application](#-running-the-application)
+- [Docker Setup](#-docker-setup)
+- [Testing](#-testing)
+- [API Documentation](#-api-documentation)
+- [Scripts](#-scripts)
+- [Development](#-development)
 
-```bash
-$ yarn install
+## ✨ Features
+
+- **Authentication Module**: Secure user authentication and authorization
+- **User Management**: Complete CRUD operations for user entities
+- **Bookmark Management**: Create, read, update, and delete bookmarks
+- **RESTful API**: Clean and standardized REST endpoints
+- **TypeScript**: Full type safety and enhanced developer experience
+- **Docker Support**: Containerized development and testing environments
+- **Database**: PostgreSQL with separate databases for development and testing
+- **Testing**: Unit and E2E tests with Jest
+- **Code Quality**: ESLint and Prettier for consistent code style
+
+## 🛠 Tech Stack
+
+- **Framework**: [NestJS](https://nestjs.com/) v11.0.1
+- **Language**: TypeScript 5.7.3
+- **Runtime**: Node.js
+- **Database**: PostgreSQL 13
+- **Containerization**: Docker & Docker Compose
+- **Testing**: Jest, Supertest
+- **Code Quality**: ESLint, Prettier
+- **Package Manager**: Yarn
+
+## 📦 Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [Yarn](https://yarnpkg.com/) package manager
+- [Docker](https://www.docker.com/) and Docker Compose (for database setup)
+
+## 🚀 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd nestjs-11-crud-rest-api
+   ```
+
+2. **Install dependencies**
+   ```bash
+   yarn install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+## 📁 Project Structure
+
+```
+nestjs-11-crud-rest-api/
+├── src/
+│   ├── auth/              # Authentication module
+│   │   ├── auth.controller.ts
+│   │   ├── auth.module.ts
+│   │   └── auth.services.ts
+│   ├── user/               # User management module
+│   │   └── user.module.ts
+│   ├── bookmark/           # Bookmark management module
+│   │   └── bookmark.module.ts
+│   ├── app.module.ts       # Root application module
+│   └── main.ts             # Application entry point
+├── test/                   # E2E tests
+├── docker-compose.yml      # Docker configuration
+├── package.json
+└── README.md
 ```
 
-## Compile and run the project
+## ⚙️ Configuration
+
+The application uses environment variables for configuration. Key settings include:
+
+- `PORT`: Server port (default: 3333)
+- Database connection settings (configured via Docker Compose)
+
+## 🏃 Running the Application
+
+### Development Mode
 
 ```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+# Start the development server with hot-reload
+yarn start:dev
 ```
 
-## Run tests
+The application will be available at `http://localhost:3333`
+
+### Production Mode
 
 ```bash
-# unit tests
-$ yarn run test
+# Build the application
+yarn build
 
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+# Run the production build
+yarn start:prod
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Debug Mode
 
 ```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
+# Start with debugging enabled
+yarn start:debug
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## 🐳 Docker Setup
 
-## Resources
+This project includes Docker Compose configuration for easy database setup.
 
-Check out a few resources that may come in handy when working with NestJS:
+### Start Database Services
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+# Start PostgreSQL databases (development and test)
+docker-compose up -d
+```
 
-## Support
+This will start two PostgreSQL instances:
+- **Development database**: Available on port `5434`
+- **Test database**: Available on port `5435`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Database Configuration
 
-## Stay in touch
+Both databases are pre-configured with:
+- **Username**: `postgres`
+- **Password**: `123`
+- **Database**: `nest`
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Stop Database Services
 
-## License
+```bash
+# Stop and remove containers
+docker-compose down
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 🧪 Testing
+
+### Run Unit Tests
+
+```bash
+# Run all unit tests
+yarn test
+
+# Run tests in watch mode
+yarn test:watch
+
+# Run tests with coverage
+yarn test:cov
+```
+
+### Run E2E Tests
+
+```bash
+# Run end-to-end tests
+yarn test:e2e
+```
+
+### Debug Tests
+
+```bash
+# Run tests with debugging
+yarn test:debug
+```
+
+## 📚 API Documentation
+
+### Modules
+
+#### Authentication (`/auth`)
+Handles user authentication and authorization.
+
+#### Users (`/users`)
+Manages user entities and operations.
+
+#### Bookmarks (`/bookmarks`)
+Manages bookmark entities and operations.
+
+> **Note**: Full API documentation will be available once the endpoints are implemented.
+
+## 📜 Scripts
+
+| Script | Description |
+|--------|-------------|
+| `yarn build` | Compile TypeScript to JavaScript |
+| `yarn start` | Start the application |
+| `yarn start:dev` | Start in development mode with hot-reload |
+| `yarn start:debug` | Start in debug mode |
+| `yarn start:prod` | Start in production mode |
+| `yarn test` | Run unit tests |
+| `yarn test:watch` | Run tests in watch mode |
+| `yarn test:cov` | Run tests with coverage |
+| `yarn test:e2e` | Run end-to-end tests |
+| `yarn lint` | Lint and fix code issues |
+| `yarn format` | Format code with Prettier |
+
+## 💻 Development
+
+### Code Style
+
+This project uses ESLint and Prettier for code formatting and linting:
+
+```bash
+# Lint and fix issues
+yarn lint
+
+# Format code
+yarn format
+```
+
+### Adding New Modules
+
+To add a new module to the application:
+
+1. Generate a new module using NestJS CLI:
+   ```bash
+   nest generate module <module-name>
+   ```
+
+2. Import the module in `app.module.ts`
+
+### Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+PORT=3333
+DATABASE_URL=postgresql://postgres:123@localhost:5434/nest
+TEST_DATABASE_URL=postgresql://postgres:123@localhost:5435/nest
+```
+
+## 📝 License
+
+This project is [UNLICENSED](LICENSE).
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📧 Support
+
+For support, please open an issue in the repository.
+
+---
+
+<p align="center">
+  Built with ❤️ using <a href="https://nestjs.com/" target="_blank">NestJS</a>
+</p>
